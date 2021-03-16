@@ -1,6 +1,9 @@
 name: Triggered on push
 
-on: [push]
+on: 
+  push:
+    paths:
+      - "ChildCare.py"
 
 jobs:
   build:
