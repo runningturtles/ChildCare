@@ -12,6 +12,6 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
-      - run: 
+      - run: |
           python -m test_ChildCare
           python -m test_ChildCareAPI
