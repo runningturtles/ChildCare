@@ -44,7 +44,7 @@ class ChildCare:
     # Only two types of categories are allowed:
     # "Tageseinrichtung" and "Tagespflege"
     def set_category(self, category):
-        if (category == "Tageseinrichtung" or category == "Tagespflege"):
+        if (category == "Tageseeinrichtung" or category == "Tagespflege"):
             self.category = category
         else:
             raise Exception("Betreuungsart nicht korrekt.")
