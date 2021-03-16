@@ -1,10 +1,10 @@
 import unittest
-import ChildCare as ChildCareClass
+import ChildCare as ChildCare_Class
 
 # Unittests for the ChildCare Class
 class TestChildCare(unittest.TestCase):
     # New class instance
-    cc = ChildCareClass.ChildCare()
+    cc = ChildCare_Class.ChildCare()
 
     # Valid tests for function set_category with 
     # valid value "Tageseinrichtung"
@@ -25,28 +25,8 @@ class TestChildCare(unittest.TestCase):
     def test_2_set_category(self):
         with self.assertRaises(Exception) as context:
             self.cc.set_category("Tagesmutter") 
-        self.assertTrue("Betreuungsart nicht korrekt." in str(context.exception))
-
-    # Valid tests for function set_year with 
-    # valid values between 2007 and 2020
-    def test_0_set_year(self):
-        self.cc.set_year("2018")        
-        result = self.cc.get_year()
-        self.assertEqual(result, "2018")
-
-    # Invalid tests for function set_year with 
-    # out-of-range values 
-    def test_1_set_year(self):
-        with self.assertRaises(Exception) as context:
-            self.cc.set_year("2001")
-        self.assertTrue("Jahr muss zwischen 2007 und 2020 sein." in str(context.exception))
-
-    # Invalid tests for function set_year with 
-    # characters as year value
-    def test_2_set_year(self):
-        with self.assertRaises(Exception) as context:
-            self.cc.set_year("10xy")
-        self.assertTrue("Jahr muss eine Zahl sein." in str(context.exception))
+        self.assertTrue("Type of care facility not allowed." 
+            in str(context.exception))
 
     # Valid tests for function set_num_kids with 
     # none-negativ integers
@@ -70,7 +50,7 @@ class TestChildCare(unittest.TestCase):
         num = ["X", "y" , "abc"]
         with self.assertRaises(Exception) as context:
             self.cc.set_num_kids(num)
-        self.assertTrue("Nur X, 0 und positive Zahlen sind erlaubt."
+        self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
     # Invalid tests for function set_num_kids with 
@@ -79,7 +59,7 @@ class TestChildCare(unittest.TestCase):
         num = ["36145", "-78" , "0"]
         with self.assertRaises(Exception) as context:
             self.cc.set_num_kids(num)
-        self.assertTrue("Nur X, 0 und positive Zahlen sind erlaubt."
+        self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
     # Valid tests for function set_num_lunches with 
@@ -104,7 +84,7 @@ class TestChildCare(unittest.TestCase):
         num = "abc"
         with self.assertRaises(Exception) as context:
             self.cc.set_num_lunches(num)
-        self.assertTrue("Nur X, 0 und positive Zahlen sind erlaubt."
+        self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
     # Invalid tests for function set_num_lunches with 
@@ -113,9 +93,32 @@ class TestChildCare(unittest.TestCase):
         num = "-2378"
         with self.assertRaises(Exception) as context:
             self.cc.set_num_lunches(num)
-        self.assertTrue("Nur X, 0 und positive Zahlen sind erlaubt."
+        self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
+    # Valid tests for function set_year with 
+    # valid values between 2007 and 2020
+    def test_0_set_year(self):
+        self.cc.set_year("2018")        
+        result = self.cc.get_year()
+        self.assertEqual(result, "2018")
+
+    # Invalid tests for function set_year with 
+    # out-of-range values 
+    def test_1_set_year(self):
+        with self.assertRaises(Exception) as context:
+            self.cc.set_year("2001")
+        self.assertTrue("Only years between 2007 and 2020 are allowed." 
+            in str(context.exception))
+
+    # Invalid tests for function set_year with 
+    # characters as year value
+    def test_2_set_year(self):
+        with self.assertRaises(Exception) as context:
+            self.cc.set_year("10xy")
+        self.assertTrue("Only years between 2007 and 2020 are allowed." 
+            in str(context.exception))
+            
 if __name__ == '__main__':
     # begin the unittest.main()
     unittest.main()
