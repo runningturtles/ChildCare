@@ -44,10 +44,10 @@ class ChildCare:
     # Only two types of categories are allowed:
     # "Tageseinrichtung" and "Tagespflege"
     def set_category(self, category):
-        if (category == "Tageseeinrichtung" or category == "Tagespflege"):
+        if (category == "Tageseinrichtung" or category == "Tagespflege"):
             self.category = category
         else:
-            raise Exception("Betreuungsart nicht korrekt.")
+            raise Exception("Type of care facility not allowed.")
 
     # SET number of kids function verifies firstly  
     # if the input list is valid and then
@@ -60,7 +60,7 @@ class ChildCare:
             if (num.isdigit()):
                 self.num_kids.append(num)
             else:
-                raise Exception("Nur X, 0 und positive Zahlen sind erlaubt.") 
+                raise Exception("Only X, 0 and positiv numbers are allowed.") 
 
     # SET number of lunches function verifies firstly  
     # if the input value list is valid and then
@@ -71,7 +71,7 @@ class ChildCare:
         if (num.isdigit()):
             self.num_lunches = num
         else:
-            raise Exception("Nur X, 0 und positive Zahlen sind erlaubt.")  
+            raise Exception("Only X, 0 and positiv numbers are allowed.")  
   
     # SET year function verifies firstly  
     # if the input value is valid and then
@@ -80,24 +80,9 @@ class ChildCare:
     def set_year(self, year):
         if (year.isdigit()):
             if (int(year) < 2007 or int(year) > 2020):
-                raise Exception("Jahr muss zwischen 2007 und 2020 sein.")
+                raise Exception("Only years between 2007 and 2020 are allowed.")
             else:
                 self.year = year
         else:
-            raise Exception("Jahr muss eine Zahl sein.")
-
-
-    #def get_sum_kids(self):
-    #    return sum(self.num_kids)
- 
-#class ChildCareList:
-#    def __init__(self):
-#	    self.cclist=[]
-#
-#    def add_to_list(self, cc):
-#	    self.cclist.append(cc)
-#	    return self.cclist
-#
-#   def get_list(self):
-#	    return self.cclist
+            raise Exception("Only years between 2007 and 2020 are allowed.")
 
