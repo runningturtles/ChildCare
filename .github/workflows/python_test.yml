@@ -1,9 +1,6 @@
 name: Triggered on push
 
-on: 
-  push:
-    paths:
-      - "ChildCare.py"
+on: [push]
 
 jobs:
   build:
@@ -15,4 +12,6 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
-      - run: python -m test_ChildCare
+      - run: 
+          python -m test_ChildCare
+          python -m test_ChildCareAPI
