@@ -89,23 +89,7 @@ class ChildCare:
 
     #def get_sum_kids(self):
     #    return sum(self.num_kids)
-
-    #def show_by_year(self):
-	#    if (self.category == "Tageseinrichtung"):
-	#        print(self.category + "\t" + str(self.num_kids[0]) + "\t" + 
-    #          str(self.num_kids[1]) + "\t" + str(self.num_kids[2]) + "\t" +
-    #          str(self.get_sum_kids()) + "\t" + str(self.num_lunches))
-	#    else:
-	#        print(self.category + "\t\t" + str(self.num_kids[0]) + "\t" + 
-    #          str(self.num_kids[1]) + "\t" + str(self.num_kids[2]) + "\t" +
-    #          str(self.get_sum_kids()) + "\t" + str(self.num_lunches))
-
-    #def show_by_category(self):
-	#    print(str(self.year) + "\t" + str(self.num_kids[0]) + "\t" + 
-    #          str(self.num_kids[1]) + "\t" + str(self.num_kids[2]) + "\t" +
-    #          str(self.get_sum_kids()) + "\t" + str(self.num_lunches))
-
-
+ 
 #class ChildCareList:
 #    def __init__(self):
 #	    self.cclist=[]
