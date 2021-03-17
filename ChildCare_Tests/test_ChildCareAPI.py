@@ -1,7 +1,7 @@
 import unittest
 import os
 import sys
-sys.path.append('../ChildCare')
+sys.path.append('./ChildCare')
 import ChildCareAPI as ChildCareAPI_Class
 
 # Unit tests for the ChildCareAPI Class
@@ -11,7 +11,7 @@ class TestChildCareAPI(unittest.TestCase):
     # a valid file
     def test_0_read_data(self):
         api = ChildCareAPI_Class.ChildCareAPI()
-        filename = "../Examples/demo.csv"
+        filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         self.assertEqual(result, 0)
 
@@ -46,7 +46,7 @@ class TestChildCareAPI(unittest.TestCase):
     # a valid file 
     def test_0_filter_by_year(self):
         api = ChildCareAPI_Class.ChildCareAPI()
-        filename = "../Examples/demo.csv"
+        filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         res = api.filter_by_year("2014")
         for i in range(len(res)):
@@ -59,7 +59,7 @@ class TestChildCareAPI(unittest.TestCase):
     # a valid file. Filtering by an invalid year 2064. 
     def test_1_filter_by_year(self):
         api = ChildCareAPI_Class.ChildCareAPI()
-        filename = "../Examples/demo.csv"
+        filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         with self.assertRaises(Exception) as context:
             api.filter_by_year("2064")
@@ -70,7 +70,7 @@ class TestChildCareAPI(unittest.TestCase):
     # a valid file 
     def test_0_filter_by_category(self):
         api = ChildCareAPI_Class.ChildCareAPI()
-        filename = "../Examples/demo.csv"
+        filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         res = api.filter_by_category("Tagespflege")
         sum_lunches = 0
@@ -82,7 +82,7 @@ class TestChildCareAPI(unittest.TestCase):
     # a valid file. Filtering by an invalid category "Tagesmutter". 
     def test_1_filter_by_category(self):
         api = ChildCareAPI_Class.ChildCareAPI()
-        filename = "../Examples/demo.csv"
+        filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         with self.assertRaises(Exception) as context:
             api.filter_by_category("Tagesmutter")
