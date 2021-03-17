@@ -2,7 +2,7 @@ import unittest
 import os
 import sys
 sys.path.append('./ChildCare')
-import ChildCareAPI as ChildCareAPI_Class
+from ChildCare import ChildCareAPI as ChildCareAPI_Class
 
 # Unit tests for the ChildCareAPI Class
 class TestChildCareAPI(unittest.TestCase):

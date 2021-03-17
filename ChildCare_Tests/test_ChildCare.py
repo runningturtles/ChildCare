@@ -1,7 +1,7 @@
 import unittest
 import sys
 sys.path.append('./ChildCare')
-import ChildCare as ChildCare_Class
+from ChildCare import ChildCare as ChildCare_Class
 
 # Unit tests for the ChildCare Class
 class TestChildCare(unittest.TestCase):

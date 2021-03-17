@@ -16,5 +16,5 @@ jobs:
           python-version: '3.x'
           architecture: 'x64'
       - run: |
-          python ./ChildCare_Tests/test_ChildCare.py
-          python ./ChildCare_Tests/test_ChildCareAPI.py
+          python -m ChildCare_Tests.test_ChildCare
+          python -m ChildCare_Tests.test_ChildCareAPI

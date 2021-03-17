@@ -7,7 +7,7 @@ setup(
                 the statistic information of \
                 the child care situation in BW',
     url='https://github.com/runningturtles/ChildCare.git',
-    author='Running Turtles',
+    author='runningturtles',
     author_email='wangxn@gmx.com',
     license='unlicense',
     packages=['ChildCare']
