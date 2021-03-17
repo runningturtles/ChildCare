@@ -1,4 +1,7 @@
-name: Triggered on push
+# This workflow will test the python modules 
+# when codes are modified
+
+name: Test Python Lib
 
 on: [push]
 
@@ -13,5 +16,5 @@ jobs:
           python-version: '3.x'
           architecture: 'x64'
       - run: |
-          python -m test_ChildCare
-          python -m test_ChildCareAPI
+          python -m ./ChildCare_Tests/test_ChildCare
+          python -m ./ChildCare_Tests/test_ChildCareAPI
