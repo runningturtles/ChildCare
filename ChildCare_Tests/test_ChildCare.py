@@ -1,19 +1,21 @@
 import unittest
+import sys
+sys.path.append('../ChildCare')
 import ChildCare as ChildCare_Class
 
-# Unittests for the ChildCare Class
+# Unit tests for the ChildCare Class
 class TestChildCare(unittest.TestCase):
     # New class instance
     cc = ChildCare_Class.ChildCare()
 
-    # Valid tests for function set_category with 
+    # Valid test for function set_category with 
     # valid value "Tageseinrichtung"
     def test_0_set_category(self):
         self.cc.set_category("Tageseinrichtung")        
         result = self.cc.get_category()
         self.assertIs(result, "Tageseinrichtung")
 
-    # Valid tests for function set_category with 
+    # Valid test for function set_category with 
     # valid value "Tagespflege"
     def test_1_set_category(self):
         self.cc.set_category("Tagespflege")        
@@ -28,7 +30,7 @@ class TestChildCare(unittest.TestCase):
         self.assertTrue("Type of care facility not allowed." 
             in str(context.exception))
 
-    # Valid tests for function set_num_kids with 
+    # Valid test for function set_num_kids with 
     # none-negativ integers
     def test_0_set_num_kids(self):
         num = ["123", "456" , "789"]
@@ -36,7 +38,7 @@ class TestChildCare(unittest.TestCase):
         result = self.cc.get_num_kids()
         self.assertListEqual(result, num)    
 
-    # Valid tests for function set_num_kids with 
+    # Valid test for function set_num_kids with 
     # allowed character "X" (meaning "value not available")
     def test_1_set_num_kids(self):
         num = ["X", "4562" , "7389"]
@@ -44,7 +46,7 @@ class TestChildCare(unittest.TestCase):
         result = self.cc.get_num_kids()
         self.assertListEqual(result, ["0", "4562", "7389"])  
 
-    # Invalid tests for function set_num_kids with 
+    # Invalid test for function set_num_kids with 
     # characters, but not numbers
     def test_2_set_num_kids(self):
         num = ["X", "y" , "abc"]
@@ -53,7 +55,7 @@ class TestChildCare(unittest.TestCase):
         self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
-    # Invalid tests for function set_num_kids with 
+    # Invalid test for function set_num_kids with 
     # negativ number
     def test_3_set_num_kids(self):
         num = ["36145", "-78" , "0"]
@@ -62,7 +64,7 @@ class TestChildCare(unittest.TestCase):
         self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
-    # Valid tests for function set_num_lunches with 
+    # Valid test for function set_num_lunches with 
     # allowed values
     def test_0_set_num_lunches(self):
         num = "98561"
@@ -70,7 +72,7 @@ class TestChildCare(unittest.TestCase):
         result = self.cc.get_num_lunches()
         self.assertEqual(result, num)    
 
-    # Valid tests for function set_num_lunches with 
+    # Valid test for function set_num_lunches with 
     # allowed character "X" (meaning "value not available")
     def test_1_set_num_lunches(self):
         num = "X"
@@ -78,7 +80,7 @@ class TestChildCare(unittest.TestCase):
         result = self.cc.get_num_lunches()
         self.assertEqual(result, "0")  
 
-    # Invalid tests for function set_num_lunches with 
+    # Invalid test for function set_num_lunches with 
     # characters, but not numbers
     def test_2_set_num_lunches(self):
         num = "abc"
@@ -87,7 +89,7 @@ class TestChildCare(unittest.TestCase):
         self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
-    # Invalid tests for function set_num_lunches with 
+    # Invalid test for function set_num_lunches with 
     # negativ number
     def test_3_set_num_lunches(self):
         num = "-2378"
@@ -96,14 +98,14 @@ class TestChildCare(unittest.TestCase):
         self.assertTrue("Only X, 0 and positiv numbers are allowed."
             in str(context.exception))
 
-    # Valid tests for function set_year with 
+    # Valid test for function set_year with 
     # valid values between 2007 and 2020
     def test_0_set_year(self):
         self.cc.set_year("2018")        
         result = self.cc.get_year()
         self.assertEqual(result, "2018")
 
-    # Invalid tests for function set_year with 
+    # Invalid test for function set_year with 
     # out-of-range values 
     def test_1_set_year(self):
         with self.assertRaises(Exception) as context:
@@ -111,7 +113,7 @@ class TestChildCare(unittest.TestCase):
         self.assertTrue("Only years between 2007 and 2020 are allowed." 
             in str(context.exception))
 
-    # Invalid tests for function set_year with 
+    # Invalid test for function set_year with 
     # characters as year value
     def test_2_set_year(self):
         with self.assertRaises(Exception) as context:

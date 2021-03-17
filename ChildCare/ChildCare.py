@@ -85,4 +85,3 @@ class ChildCare:
                 self.year = year
         else:
             raise Exception("Only years between 2007 and 2020 are allowed.")
-

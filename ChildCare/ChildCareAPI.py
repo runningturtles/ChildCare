@@ -20,7 +20,6 @@ class ChildCareAPI:
 			raise Exception("File doesn't exist.")
 
 		# Opening file and reading the contents line by line
-		self.filename = filename
 		fh = open(filename, 'r')
 		count = 0
 		while True:
@@ -32,7 +31,7 @@ class ChildCareAPI:
 				break
 			# If the content is a year, then two data sets will be 
 			# added into the list 
-			if (re.match(r"\d{4}", line.strip())):
+			if (re.match(r"\d{4}", line.strip())):				
 				# Initializing the variables
 				cc1 = ChildCare_Class.ChildCare()
 				cc2 = ChildCare_Class.ChildCare()
@@ -73,6 +72,9 @@ class ChildCareAPI:
 				self.datasets.append(cc2)
 		# Closing the file
 		fh.close()
+
+		if (len(self.datasets) == 0):
+			raise Exception("File doesn't contain any valid data.")			
 		return 0
        
     # Filtering the data sets by year     
@@ -82,6 +84,8 @@ class ChildCareAPI:
 		for cc in self.datasets:
 			if (str(cc.get_year()) == year):
 				res.append(cc)
+		if (len(res) == 0):
+			raise Exception("No valid data found.")
 		return res
 
 	def filter_by_category(self, category):
@@ -90,4 +94,6 @@ class ChildCareAPI:
 		for cc in self.datasets:
 			if (cc.get_category() == category):
 				res.append(cc)
+		if (len(res) == 0):
+			raise Exception("No valid data found.")
 		return res
