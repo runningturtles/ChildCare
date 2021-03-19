@@ -35,8 +35,8 @@ Creating an instance of the API with:
 You can then simply use the interfaces to get your preferred data.  
 The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki.  
 Demostration data can be found at: https://github.com/runningturtles/ChildCare/tree/main/Examples  
-> *api.read_data("demo.csv")
-api.show_data(api.filter_by_year("2009"))*
+> *api.read_data("demo.csv")*  
+> *api.show_data(api.filter_by_year("2009"))*
 
 ## Documentation
 Find more information about the data structure and interfaces at:
