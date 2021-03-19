@@ -11,6 +11,7 @@
 
 
 class ChildCare:
+    
     # Initial attributes with empty values
     def __init__(self):
         self.category = ""
@@ -76,12 +77,9 @@ class ChildCare:
     # SET year function verifies firstly  
     # if the input value is valid and then
     # set it to the attribute year;
-    # Only years between 2007 and 2020 are allowed.
+    # Only none-negativ numbers are allowed.
     def set_year(self, year):
         if (year.isdigit()):
-            if (int(year) < 2007 or int(year) > 2020):
-                raise Exception("Only years between 2007 and 2020 are allowed.")
-            else:
-                self.year = year
+            self.year = year
         else:
-            raise Exception("Only years between 2007 and 2020 are allowed.")
+            raise Exception("Year has invalid value.")

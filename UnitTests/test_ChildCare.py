@@ -1,10 +1,12 @@
-import unittest
-import sys
-sys.path.append('./ChildCare')
-from ChildCare import ChildCare as ChildCare_Class
-
 # Unit tests for the ChildCare Class
+# Valid and invalid tests for each function
+
+import unittest
+import ChildCare.ChildCare as ChildCare_Class
+
+
 class TestChildCare(unittest.TestCase):
+
     # New class instance
     cc = ChildCare_Class.ChildCare()
 
@@ -99,18 +101,18 @@ class TestChildCare(unittest.TestCase):
             in str(context.exception))
 
     # Valid test for function set_year with 
-    # valid values between 2007 and 2020
+    # valid values
     def test_0_set_year(self):
         self.cc.set_year("2018")        
         result = self.cc.get_year()
         self.assertEqual(result, "2018")
 
     # Invalid test for function set_year with 
-    # out-of-range values 
+    # negativ values 
     def test_1_set_year(self):
         with self.assertRaises(Exception) as context:
-            self.cc.set_year("2001")
-        self.assertTrue("Only years between 2007 and 2020 are allowed." 
+            self.cc.set_year("-2030")
+        self.assertTrue("Year has invalid value." 
             in str(context.exception))
 
     # Invalid test for function set_year with 
@@ -118,9 +120,10 @@ class TestChildCare(unittest.TestCase):
     def test_2_set_year(self):
         with self.assertRaises(Exception) as context:
             self.cc.set_year("10xy")
-        self.assertTrue("Only years between 2007 and 2020 are allowed." 
+        self.assertTrue("Year has invalid value."
             in str(context.exception))
-            
+
+
 if __name__ == '__main__':
     # begin the unittest.main()
     unittest.main()

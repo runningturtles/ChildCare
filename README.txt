@@ -1,1 +1,0 @@
-Python Lib to get information about the statistic information of the child care situation.

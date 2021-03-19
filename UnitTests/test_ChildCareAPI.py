@@ -1,16 +1,17 @@
-import unittest
-import os
-import sys
-sys.path.append('./ChildCare')
-from ChildCare import ChildCareAPI as ChildCareAPI_Class
+# Unit tests for the ChildCareLib Class
+# Valid and invalid tests for each function
 
-# Unit tests for the ChildCareAPI Class
-class TestChildCareAPI(unittest.TestCase):
+import os
+import unittest
+import ChildCare.ChildCareLib as ChildCareLib_Class
+
+
+class TestChildCareLib(unittest.TestCase):
 
     # Valid test for function read_data with 
     # a valid file
     def test_0_read_data(self):
-        api = ChildCareAPI_Class.ChildCareAPI()
+        api = ChildCareLib_Class.ChildCareLib()
         filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         self.assertEqual(result, 0)
@@ -18,7 +19,7 @@ class TestChildCareAPI(unittest.TestCase):
     # Invalid test for function read_data with 
     # none-existing file
     def test_1_read_data(self):
-        api = ChildCareAPI_Class.ChildCareAPI()
+        api = ChildCareLib_Class.ChildCareLib()
         filename = "vf34g.csv"
         with self.assertRaises(Exception) as context:
             api.read_data(filename)
@@ -28,7 +29,7 @@ class TestChildCareAPI(unittest.TestCase):
     # Invalid test for function read_data with 
     # an existing file but without any valid data
     def test_2_read_data(self):
-        api = ChildCareAPI_Class.ChildCareAPI()
+        api = ChildCareLib_Class.ChildCareLib()
         # Touch an empty file
         filename = "fakedata.csv"
         fh = open(filename, "a")
@@ -45,7 +46,7 @@ class TestChildCareAPI(unittest.TestCase):
     # Valid test for function filter_by_year with 
     # a valid file 
     def test_0_filter_by_year(self):
-        api = ChildCareAPI_Class.ChildCareAPI()
+        api = ChildCareLib_Class.ChildCareLib()
         filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         res = api.filter_by_year("2014")
@@ -58,7 +59,7 @@ class TestChildCareAPI(unittest.TestCase):
     # Invalid test for function filter_by_year with 
     # a valid file. Filtering by an invalid year 2064. 
     def test_1_filter_by_year(self):
-        api = ChildCareAPI_Class.ChildCareAPI()
+        api = ChildCareLib_Class.ChildCareLib()
         filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         with self.assertRaises(Exception) as context:
@@ -69,7 +70,7 @@ class TestChildCareAPI(unittest.TestCase):
     # Valid test for function filter_by_category with 
     # a valid file 
     def test_0_filter_by_category(self):
-        api = ChildCareAPI_Class.ChildCareAPI()
+        api = ChildCareLib_Class.ChildCareLib()
         filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         res = api.filter_by_category("Tagespflege")
@@ -81,7 +82,7 @@ class TestChildCareAPI(unittest.TestCase):
     # Invalid test for function filter_by_category with 
     # a valid file. Filtering by an invalid category "Tagesmutter". 
     def test_1_filter_by_category(self):
-        api = ChildCareAPI_Class.ChildCareAPI()
+        api = ChildCareLib_Class.ChildCareLib()
         filename = "./Examples/demo.csv"
         result = api.read_data(filename)
         with self.assertRaises(Exception) as context:

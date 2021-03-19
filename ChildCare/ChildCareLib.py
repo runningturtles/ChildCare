@@ -1,12 +1,14 @@
-# Class ChildCareAPI provides the interfaces to
+# Class ChildCareLib provides the interfaces to
 # import, query and filter data
 
-from . import ChildCare as ChildCare_Class
-import re
 import os
+import re
+from . import ChildCare as ChildCare_Class
 
-class ChildCareAPI:
-	# Initializing ChildCareAPI with empty data
+
+class ChildCareLib:
+
+	# Initializing ChildCareLib with empty data
 	def __init__(self):
 		self.datasets = []
 
@@ -88,6 +90,7 @@ class ChildCareAPI:
 			raise Exception("No valid data found.")
 		return res
 
+	# Filtering the data sets by category
 	def filter_by_category(self, category):
 		cc = ChildCare_Class.ChildCare()
 		res = []
@@ -97,3 +100,17 @@ class ChildCareAPI:
 		if (len(res) == 0):
 			raise Exception("No valid data found.")
 		return res
+
+	# Printing out data to console
+	def show_data(self, data_list):
+		if (len(data_list) == 0):
+			raise Exception("No data found.")
+		else:
+			cc = ChildCare_Class.ChildCare()
+			for cc in data_list:
+				print("Category: " + cc.get_category())
+				print("Number of Childern ['<3y', '3-6y', '6-14']:")
+				print(cc.get_num_kids())
+				print("Number of Lunches: " + cc.get_num_lunches())
+				print("Year: " + cc.get_year())
+			return 0		

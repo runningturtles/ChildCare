@@ -15,6 +15,20 @@ jobs:
         with:
           python-version: '3.x'
           architecture: 'x64'
+      - name: Unit Tests
       - run: |
-          python -m ChildCare_Tests.test_ChildCare
-          python -m ChildCare_Tests.test_ChildCareAPI
+          python -m UnitTests.test_ChildCare
+          python -m UnitTests.test_ChildCareLib
+      - name: Build Package
+      - run: |
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+          python setup.py sdist bdist_wheel
+      - name: Install Package
+      - run:
+          pip install dist/*.whl
+      - name: Integration Test
+      - run:
+          python IntegrationTests/main.py           
+
+
