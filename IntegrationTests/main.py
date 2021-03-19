@@ -12,7 +12,7 @@ api.read_data("./Examples/demo.csv")
 
 # Getting data by a given year and 
 # comparing the results
-data_by_year = api.filter_by_year("2008")
+data_by_year = api.filter_by_year("2009")
 for data in data_by_year:
     if (data.get_category() == "Tageseinrichtung"):
         if (data.get_num_lunches() == "131907"):
