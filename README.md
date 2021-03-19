@@ -8,35 +8,35 @@
 - Importing data from a csv file
 - Querying data by year
 - Querying data by type of care facilities
+- Displaying query results 
 
 ## Pre-requisite
 Python 3.x
 
 ## Where to get it?
 
-The source code is currently hosted on GitHub at: https://github.com/runningturtles/ChildCare
+The source code is currently hosted on GitHub at: https://github.com/runningturtles/ChildCare  
 Binary installers for the latest released version are available at: https://test.pypi.org/project/ChildCare
 
 ## How to install it?
 
-Using pip to install the package from TestPyPI 
+Using pip to install the package from TestPyPI:   
 > *pip install -i https://test.pypi.org/simple/ ChildCare*
 
 ## How to use it?
 
-After installing the Python Package from TestPyPI, you can simply import the library by using:
-> *import ChildCare.ChildCare as myChildCare
-import ChildCare.ChildCareAPI as myChildCareAPI*  
+After installing the Python Package from TestPyPI, you can simply import the library by using:  
+> *from ChildCare import ChildCare as myChildCare*  
+> *from ChildCare import ChildCareLib as myChildCareLib*  
 
-Creating an instance of the API class with:
-> *my_cc = myChildCare.ChildCare()
-my_cc_api = myChildCareAPI.ChildCareAPI()*
+Creating an instance of the API with:   
+> *api = myChildCareAPI.ChildCareAPI()*
 
-You can then simply use the interfaces to get your favored data. The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki. Demostration data can be found at: https://github.com/runningturtles/ChildCare/tree/main/Examples.
-> *my_cc_api.read_data("demo.csv")
-my_cc_api.filter_by_year("2009")
-my_cc.get_category()
-my_cc.get_num_kids()*
+You can then simply use the interfaces to get your preferred data.  
+The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki.  
+Demostration data can be found at: https://github.com/runningturtles/ChildCare/tree/main/Examples  
+> *api.read_data("demo.csv")
+api.show_data(api.filter_by_year("2009"))*
 
 ## Documentation
 Find more information about the data structure and interfaces at:
