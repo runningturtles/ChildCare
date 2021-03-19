@@ -8,8 +8,8 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
     name='ChildCare',
     version='0.0.1',
-    description='Python library to get information about \
-                the statistic data of \
+    description='Python library to get \
+                statistical data about \
                 the child care situation',
     long_description=long_description,
     long_description_content_type='text/markdown',
