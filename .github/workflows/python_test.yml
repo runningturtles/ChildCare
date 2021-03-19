@@ -25,10 +25,6 @@ jobs:
           pip install setuptools wheel twine
           python setup.py sdist bdist_wheel
       - name: Install Package
-      - run:
-          pip install dist/*.whl
+      - run: pip install dist/*.whl
       - name: Integration Test
-      - run:
-          python IntegrationTests/main.py           
-
-
+      - run: python IntegrationTests/main.py
