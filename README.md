@@ -30,7 +30,7 @@ After installing the Python Package from TestPyPI, you can simply import the lib
 > *from ChildCare import ChildCareLib as myChildCareLib*  
 
 Creating an instance of the API with:   
-> *api = myChildCareAPI.ChildCareAPI()*
+> *api = myChildCareLib.ChildCareLib()*
 
 You can then simply use the interfaces to get your preferred data.  
 The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki.  
