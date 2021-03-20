@@ -47,6 +47,7 @@ class ChildCare:
     def set_category(self, category):
         if (category == "Tageseinrichtung" or category == "Tagespflege"):
             self.category = category
+            return 0
         else:
             raise Exception("Type of care facility not allowed.")
 
@@ -62,6 +63,7 @@ class ChildCare:
                 self.num_kids.append(num)
             else:
                 raise Exception("Only X, 0 and positiv numbers are allowed.") 
+        return 0
 
     # SET number of lunches function verifies firstly  
     # if the input value list is valid and then
@@ -71,6 +73,7 @@ class ChildCare:
         num = num_lunches.replace("X", "0")
         if (num.isdigit()):
             self.num_lunches = num
+            return 0
         else:
             raise Exception("Only X, 0 and positiv numbers are allowed.")  
   
@@ -81,5 +84,6 @@ class ChildCare:
     def set_year(self, year):
         if (year.isdigit()):
             self.year = year
+            return 0
         else:
             raise Exception("Year has invalid value.")

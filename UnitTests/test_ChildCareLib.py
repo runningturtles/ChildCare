@@ -90,6 +90,25 @@ class TestChildCareLib(unittest.TestCase):
         self.assertTrue("No valid data found." 
             in str(context.exception))
 
+    # Valid test for function show_data with 
+    # valid data
+    def test_0_show_data(self):
+        api = ChildCareLib_Class.ChildCareLib()
+        filename = "./Examples/demo.csv"
+        api.read_data(filename)
+        result = api.show_data(api.datasets)
+        self.assertEqual(result, 0)
+
+    # Invalid test for function show_data with 
+    # empty data
+    def test_1_show_data(self):
+        api = ChildCareLib_Class.ChildCareLib()
+        data_list = []
+        with self.assertRaises(Exception) as context:
+            api.show_data(data_list)
+        self.assertTrue("No data found." 
+            in str(context.exception))
+
 
 if __name__ == '__main__':
     # begin the unittest.main()

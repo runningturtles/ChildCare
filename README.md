@@ -8,7 +8,7 @@
 - Importing data from a csv file
 - Querying data by year
 - Querying data by type of care facilities
-- Displaying query results 
+- Displaying data 
 
 ## Prerequisite
 Python 3.x
