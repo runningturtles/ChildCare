@@ -33,9 +33,10 @@ Creating an instance of the API with:
 `api = myChildCareLib.ChildCareLib()`  
 
 You can then simply use the interfaces to get your preferred data.   
-The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki  
+The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki/API-Reference  
 Demostration data can be found at: https://github.com/runningturtles/ChildCare/tree/main/Examples  
-If you use your own data file, please make sure it has the same structure as the demo file.  More information about the file structure at: https://github.com/runningturtles/ChildCare/wiki/Data-File-Structure
+If you use your own data file, please make sure it has the same structure as the demo file.   
+More information about the file structure is available at: https://github.com/runningturtles/ChildCare/wiki/Data-File-Structure
 `api.read_data("demo.csv")`  
 `api.show_data(api.filter_by_year("2009"))`  
 
