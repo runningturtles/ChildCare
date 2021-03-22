@@ -1,11 +1,11 @@
 # ChildCare
 ## What is it?
 
-**ChildCare** is a Python library that provides statistical information about the day care situation. Additionally, data can be queried by year and by type of the care facilities.
+**ChildCare** is a Python library that takes a structured file as data source and provides statistical information about the day care situation. Additionally, data can be queried by year and by type of the care facilities.
 
 ## Features
 
-- Importing data from a csv file
+- Importing data from a structured csv file
 - Querying data by year
 - Querying data by type of care facilities
 - Displaying data 
@@ -32,12 +32,13 @@ After installing the Python Package from TestPyPI, you can simply import the lib
 Creating an instance of the API with:   
 `api = myChildCareLib.ChildCareLib()`  
 
-You can then simply use the interfaces to get your preferred data.  
-The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki.  
+You can then simply use the interfaces to get your preferred data.   
+The interfaces are decribed here: https://github.com/runningturtles/ChildCare/wiki  
 Demostration data can be found at: https://github.com/runningturtles/ChildCare/tree/main/Examples  
+If you use your own data file, please make sure it has the same structure as the demo file.  More information about the file structure at: https://github.com/runningturtles/ChildCare/wiki/Data-File-Structure
 `api.read_data("demo.csv")`  
 `api.show_data(api.filter_by_year("2009"))`  
 
 ## Documentation
-Find more information about the data structure and interfaces at:
+Find more information for developers and users at:  
 https://github.com/runningturtles/ChildCare/wiki

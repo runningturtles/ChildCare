@@ -1,5 +1,6 @@
-# This workflow will test the python modules 
-# when codes are modified
+# This workflow will test the Python modules with unit tests, 
+# build a local Python package and execute the integration test, 
+# when codes are pushed to Git repo
 
 name: Test Python Lib
 
@@ -27,4 +28,4 @@ jobs:
       - name: Install Package
         run: pip install dist/*.whl
       - name: Integration Test
-        run: python IntegrationTests/main.py
+        run: python IntegrationTests/main.py ./Examples/demo.csv

@@ -1,6 +1,9 @@
+# Python file for the Python Setuptools
+
 from setuptools import setup
 from os import path
 
+# Setting the content of README.md to the long description 
 this_directory = path.abspath(path.dirname(__file__))
 with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()

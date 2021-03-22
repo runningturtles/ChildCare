@@ -25,7 +25,7 @@ class TestChildCare(unittest.TestCase):
         self.assertIs(result, "Tagespflege")
 
     # Invalid test for function set_category with 
-    # a not allowed value
+    # a not allowed value "Tagesmutter"
     def test_2_set_category(self):
         with self.assertRaises(Exception) as context:
             self.cc.set_category("Tagesmutter") 
@@ -41,15 +41,15 @@ class TestChildCare(unittest.TestCase):
         self.assertListEqual(result, num)    
 
     # Valid test for function set_num_kids with 
-    # allowed character "X" (meaning "value not available")
+    # allowed character "X" (meaning "information not available")
     def test_1_set_num_kids(self):
         num = ["X", "4562" , "7389"]
         self.cc.set_num_kids(num) 
         result = self.cc.get_num_kids()
-        self.assertListEqual(result, ["0", "4562", "7389"])  
+        self.assertListEqual(result, ["X", "4562", "7389"])  
 
     # Invalid test for function set_num_kids with 
-    # characters, but not numbers
+    # characters, but not X and not numbers
     def test_2_set_num_kids(self):
         num = ["X", "y" , "abc"]
         with self.assertRaises(Exception) as context:
@@ -75,15 +75,15 @@ class TestChildCare(unittest.TestCase):
         self.assertEqual(result, num)    
 
     # Valid test for function set_num_lunches with 
-    # allowed character "X" (meaning "value not available")
+    # allowed character "X" (meaning "information not available")
     def test_1_set_num_lunches(self):
         num = "X"
         self.cc.set_num_lunches(num) 
         result = self.cc.get_num_lunches()
-        self.assertEqual(result, "0")  
+        self.assertEqual(result, "X")  
 
     # Invalid test for function set_num_lunches with 
-    # characters, but not numbers
+    # characters, but not X and not numbers
     def test_2_set_num_lunches(self):
         num = "abc"
         with self.assertRaises(Exception) as context:
