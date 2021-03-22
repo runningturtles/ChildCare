@@ -48,7 +48,7 @@ class TestChildCareLib(unittest.TestCase):
 
     # Invalid test for function read_data with 
     # an existing file but with incorrect data:
-    # Raising error at the first skip line
+    # Raising error at the first skipped line
     def test_3_read_data(self):
         api = ChildCareLib_Class.ChildCareLib()
 
@@ -69,7 +69,7 @@ class TestChildCareLib(unittest.TestCase):
 
     # Invalid test for function read_data with 
     # an existing file but with incorrect data:
-    # Raising error at the second skip line
+    # Raising error at the second skipped line
     def test_4_read_data(self):
         api = ChildCareLib_Class.ChildCareLib()
 

@@ -9,7 +9,7 @@ from . import ChildCare as ChildCare_Class
 class ChildCareLib:
 
 	# Initializing ChildCareLib with empty data
-	# The entire data from the data source will be stored in this list
+	# All data from the data source will be stored in this list
 	def __init__(self):
 		self.datasets = []
 
@@ -56,7 +56,8 @@ class ChildCareLib:
 				num_lunches1 = ""
 				num_lunches2 = ""
 				# Skipping the line about the total number of the kids 
-				# Total number of kids can be calculated by the available data.
+				# Total number of children can be calculated 
+				# from the available data.
 				line = fh.readline()
 				if not line:
 					fh.close()

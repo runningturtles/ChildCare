@@ -33,7 +33,7 @@ class TestChildCare(unittest.TestCase):
             in str(context.exception))
 
     # Valid test for function set_num_kids with 
-    # none-negativ integers
+    # valid numbers
     def test_0_set_num_kids(self):
         num = ["123", "456" , "789"]
         self.cc.set_num_kids(num)        
@@ -58,7 +58,7 @@ class TestChildCare(unittest.TestCase):
             in str(context.exception))
 
     # Invalid test for function set_num_kids with 
-    # negativ number
+    # negative number
     def test_3_set_num_kids(self):
         num = ["36145", "-78" , "0"]
         with self.assertRaises(Exception) as context:
@@ -67,7 +67,7 @@ class TestChildCare(unittest.TestCase):
             in str(context.exception))
 
     # Valid test for function set_num_lunches with 
-    # allowed values
+    # a valid number
     def test_0_set_num_lunches(self):
         num = "98561"
         self.cc.set_num_lunches(num)        
@@ -92,7 +92,7 @@ class TestChildCare(unittest.TestCase):
             in str(context.exception))
 
     # Invalid test for function set_num_lunches with 
-    # negativ number
+    # negative number
     def test_3_set_num_lunches(self):
         num = "-2378"
         with self.assertRaises(Exception) as context:
@@ -108,7 +108,7 @@ class TestChildCare(unittest.TestCase):
         self.assertEqual(result, "2018")
 
     # Invalid test for function set_year with 
-    # negativ values 
+    # negative values 
     def test_1_set_year(self):
         with self.assertRaises(Exception) as context:
             self.cc.set_year("-2030")
@@ -123,6 +123,13 @@ class TestChildCare(unittest.TestCase):
         self.assertTrue("Year has invalid value."
             in str(context.exception))
 
+    # Invalid test for function set_year with 
+    # none-4-digit numbers as year value
+    def test_3_set_year(self):
+        with self.assertRaises(Exception) as context:
+            self.cc.set_year("12")
+        self.assertTrue("Year has invalid value."
+            in str(context.exception))
 
 if __name__ == '__main__':
     # begin the unittest.main()
